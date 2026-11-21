@@ -133,7 +133,7 @@ export default function App() {
     <main className="login-page">
       <header className="brand-header">
         <p className="brand">HALLYM UNI</p>
-        <h1>로그인</h1>
+        <h1>지금 로그인</h1>
       </header>
 
       <form className="login-form" onSubmit={handleSubmit} noValidate>
