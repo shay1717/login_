@@ -1,0 +1,10 @@
+{
+  "description": "사용자 테스트용 프로토타입을 제작하고 GitHub Pages에 자동 배포할 수 있도록 프로젝트 환경을 구성하는 앱입니다.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

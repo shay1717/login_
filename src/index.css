@@ -1,0 +1,359 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Paperlogy:4 Regular';
+  src: url('/fonts/Paperlogy-4_Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Paperlogy:5 Medium';
+  src: url('/fonts/Paperlogy-5_Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Paperlogy:7 Bold';
+  src: url('/fonts/Paperlogy-7_Bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Paperlogy:8 ExtraBold';
+  src: url('/fonts/Paperlogy-8_ExtraBold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 800;
+}
+
+:root {
+  --color-ink: #2a3038;
+  --color-input-ink: #555d6d;
+  --color-muted: #868b94;
+  --color-placeholder: #b0b3ba;
+  --color-field: #f3f4f5;
+  --color-field-focus: #fafdff;
+  --color-disabled: #cccccc;
+  --color-danger: #ea4335;
+  --color-brand: #278eff;
+  --color-spinner: #55b1f3;
+  --color-white: #ffffff;
+  --space-page: 24px;
+  --radius-field: 20px;
+  --radius-action: 16px;
+}
+
+@layer base {
+  body {
+    min-width: 320px;
+    min-height: 100dvh;
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-family: 'Paperlogy:4 Regular', sans-serif;
+  }
+
+  button,
+  input {
+    outline: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+.login-page {
+  position: relative;
+  width: 100%;
+  min-height: max(100dvh, 812px);
+  padding: 70px var(--space-page) 72px;
+  background: var(--color-white);
+}
+
+.brand-header,
+.login-form,
+.account-links,
+.social-logins {
+  width: min(100%, 342px);
+  margin-inline: auto;
+}
+
+.brand-header {
+  color: #000000;
+  text-align: center;
+}
+
+.brand {
+  font-family: 'Paperlogy:8 ExtraBold', sans-serif;
+  font-size: 38px;
+  line-height: 28px;
+  white-space: nowrap;
+}
+
+.brand-header h1 {
+  margin-top: 48px;
+  font-family: 'Paperlogy:5 Medium', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 48px;
+}
+
+.text-field {
+  display: flex;
+  min-height: 86px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text-field + .text-field {
+  margin-top: 35px;
+}
+
+.text-field:has(.field-error) + .text-field {
+  margin-top: 11px;
+}
+
+.field-label {
+  font-family: 'Paperlogy:7 Bold', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.input-shell {
+  display: flex;
+  height: 54px;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-field);
+  background: var(--color-field);
+  padding: 12px 16px;
+}
+
+.input-shell:focus-within,
+.input-shell.is-filled {
+  border-color: var(--color-ink);
+  background: var(--color-field-focus);
+}
+
+.input-shell input {
+  min-width: 0;
+  flex: 1;
+  color: var(--color-input-ink);
+  font-family: 'Paperlogy:4 Regular', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.input-shell input::placeholder {
+  color: var(--color-placeholder);
+  opacity: 1;
+}
+
+.clear-button {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+
+.clear-button img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.field-error {
+  color: var(--color-danger);
+  font-family: 'Paperlogy:4 Regular', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.password-link {
+  align-self: flex-end;
+  margin-top: 24px;
+  color: var(--color-ink);
+  font-family: 'Paperlogy:5 Medium', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  text-decoration: underline;
+  text-underline-position: from-font;
+}
+
+.text-field:has(.field-error) + .password-link {
+  margin-top: 0;
+}
+
+.action-button {
+  width: 100%;
+  height: 56px;
+  margin-top: 45px;
+  border-radius: var(--radius-action);
+  background: var(--color-ink);
+  color: var(--color-white);
+  font-family: 'Paperlogy:7 Bold', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.action-button:disabled {
+  cursor: default;
+  background: var(--color-disabled);
+}
+
+.account-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+  font-family: 'Paperlogy:5 Medium', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.account-links button {
+  text-decoration: underline;
+  text-underline-position: from-font;
+}
+
+.account-links span {
+  color: var(--color-placeholder);
+}
+
+.social-logins {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 38px;
+}
+
+.social-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.social-button,
+.social-button > img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+.social-button.google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #dcdcdc;
+}
+
+.social-button.google > img {
+  width: 23px;
+  height: 23px;
+}
+
+.recent-badge {
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  left: calc(50% - 23px);
+  border-radius: 20px 20px 20px 0;
+  background: var(--color-brand);
+  padding: 3px 8px 2px;
+  color: var(--color-white);
+  font-family: 'Paperlogy:5 Medium', sans-serif;
+  font-size: 12px;
+  line-height: 19px;
+  white-space: nowrap;
+}
+
+.modal-backdrop {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 70%);
+  padding: var(--space-page);
+}
+
+.loading-modal {
+  display: flex;
+  width: min(100%, 342px);
+  height: 211px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+  background: var(--color-white);
+  padding: 16px 20px;
+}
+
+.modal-copy {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.modal-copy strong {
+  font-family: 'Paperlogy:7 Bold', sans-serif;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.modal-copy span {
+  color: var(--color-muted);
+  font-family: 'Paperlogy:4 Regular', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.spinner {
+  position: relative;
+  width: 82px;
+  height: 82px;
+  overflow: hidden;
+}
+
+.spinner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 110px;
+  height: 110px;
+  transform: scale(0.7455);
+  transform-origin: top left;
+}
+
+.spinner-active {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: scale(0.7455) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner-active {
+    animation: none;
+  }
+}
